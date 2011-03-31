@@ -1,0 +1,59 @@
+#######################################
+# Syntax Coloring Map for SM125
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+SM125	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+cmdStaticExec	KEYWORD2
+cmdRead	KEYWORD2
+cmdReadwPass	KEYWORD2
+cmdWrite	KEYWORD2
+cmdWritewPass	KEYWORD2
+cmdSetAutoMode	KEYWORD2
+cmdSetProgParam	KEYWORD2
+cmdReadFirmwareVersion	KEYWORD2
+cmdStopRead	KEYWORD2
+cmdReset	KEYWORD2
+cmdSleep	KEYWORD2
+cmdSetQ5ProgParam	KEYWORD2
+cmdSetT5557ProgParam	KEYWORD2
+cmdResetQ5Tag	KEYWORD2
+cmdResetT5557Tag	KEYWORD2
+getSM125Response	KEYWORD2
+getSM125ResponsePayload	KEYWORD2
+dbgCmdResponsePretty	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+CMD_READ	LITERAL1
+CMD_READ_WITH_PASS	LITERAL1
+CMD_WRITE	LITERAL1
+CMD_WRITE_WITH_PASS	LITERAL1
+CMD_WRITE_OUTPUT_PINS	LITERAL1
+CMD_READ_INPUT_PIN	LITERAL1
+CMD_SET_AUTO_MODE	LITERAL1
+CMD_SET_PROG_PARAM	LITERAL1
+CMD_SET_RADF	LITERAL1
+CMD_SET_BAUD	LITERAL1
+CMD_SET_BYTE_TRACK	LITERAL1
+CMD_SET_OUTPUT_TYPE	LITERAL1
+CMD_SET_I2C	LITERAL1
+READ_MODE_BT_M64	LITERAL1
+READ_MODE_RAW_EM4102	LITERAL1
+READ_MODE_EM4102	LITERAL1
+READ_MODE_BT_M32	LITERAL1
+HEADER	LITERAL1
+RESERVED	LITERAL1
+AUTO_READ_DISABLE	LITERAL1
+AUTO_READ_ENABLE	LITERAL1
+AUTO_PASSWORD_ENABLE	LITERAL1

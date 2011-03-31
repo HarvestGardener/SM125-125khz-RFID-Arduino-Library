@@ -27,11 +27,51 @@
  *				T5555/Q5 Datasheet		- http://www.sonmicro.com/en/downloads/125/Q5B.pdf
  *      		T55x7 Datasheet  		- http://www.sonmicro.com/en/downloads/125/t5557.pdf
  **/ 
- 
-Note: This library requires rev 12 of the NewSoftSerial library slightly modded to make write a public function. 
-It is required for proper operation of the SM125 library. The modded library is included @ github.
+#ifndef SM125_h
+#define SM125_h
 
-30 March 2011 - The library is mostly complete although there are some functions I have not tested yet. Additionally, there are undocumented 
-commands for the SM125 I am not sure how to use. I will try to contact SonMicro to see if they are willing to describe them so I can put them
-in the library. 
+#include "WProgram.h"
+#include "..\NewSoftSerial\NewSoftSerial.h"
 
+class SM125 
+{
+  //Public functions
+  public:
+	//Constructor
+    SM125(int rxPin, int txPin);
+	
+	//Basic Commmands
+    int cmdStaticExec(byte* cmdToExecute, int len);
+    int cmdRead (byte hexMode, byte hexBlock);
+	int cmdReadwPass (byte hexMode, byte hexBlock, byte hexPByte1, byte hexPByte2, byte hexPByte3, byte hexPByte4);
+	int cmdWrite (byte hexBlock, byte hexByte1, byte hexByte2, byte hexByte3, byte hexByte4);
+	int cmdWritewPass (byte hexMode, byte hexBlock, byte hexByte1, byte hexByte2, byte hexByte3, byte hexByte4, byte hexPByte1, byte hexPByte2, byte hexPByte3, byte hexPByte4);
+	int cmdSetAutoMode (byte hexAutoMode, byte hexMode, byte hexBlock, byte hexPassMode, byte hexPByte1, byte hexPByte2, byte hexPByte3, byte hexPByte4);
+	
+	//Configuration Commands
+	int cmdSetProgParam (byte hexWG, byte hexSG, byte hexONE, byte hexZERO, byte hexPADF);
+	void cmdReadFirmwareVersion();
+	
+	//Command Aliases
+	int cmdStopRead();
+	int cmdReset();
+	int cmdSleep();
+	int cmdSetQ5ProgParam();
+	int cmdSetT5557ProgParam();
+	int cmdResetQ5Tag();
+	int cmdResetT5557Tag();
+	
+	//Reponse Commands
+	byte* getSM125Response();
+	byte* getSM125ResponsePayload();
+	
+	//Debug Commands
+	void printCmdResponse();
+	
+  //Private functions & variables
+  private:
+    int verifySuccess();
+	NewSoftSerial serialRFID;
+};
+
+#endif
